@@ -21,10 +21,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
+# Use Devise for user authentication. Read more: https://github.com/plataformatec/devise
 gem 'devise'
+# Use Simple Form builder. Read more: https://github.com/plataformatec/simple_form
 gem 'simple_form'
-gem 'haml'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
