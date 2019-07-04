@@ -4,15 +4,15 @@
       <div class="list-group">
         <% unless @documents.blank? %>
           <% @documents.each do |doc| %>
-            <a href="<% url_for(doc) %>" class="list-group-item list-group-item-action">
-              <h3><%= doc.title %></h3>
-              <p class="font-italic">
-                <%= "Created #{time_ago_in_words(doc.created_at)} ago" %>
-              </p>
-              <p>
-                <%= truncate(doc.body, length: 50) %>
-              </p>
-            </a>
+            <%= link_to document_path(doc), class: 'list-group-item list-group-item-action' do %>
+                <h3><%= doc.title %></h3>
+                <p class="font-italic">
+                  <%= "Created #{time_ago_in_words(doc.created_at)} ago" %>
+                </p>
+                <p>
+                  <%= truncate(doc.body, length: 50) %>
+                </p>
+              <% end %>
           <% end %>
         <% end %>
       </div>
