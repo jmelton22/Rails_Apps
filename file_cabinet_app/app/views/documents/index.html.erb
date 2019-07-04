@@ -1,41 +1,21 @@
-<!--.wrapper_with_padding-->
-<!--  #docs.clearfix-->
-<!--    - unless @documents.blank?-->
-<!--      - @documents.each do |doc|-->
-<!--        %a{ href: (url_for [doc])}-->
-<!--          .doc-->
-<!--            %p.title= doc.title-->
-<!--            %p.date= time_ago_in_words(doc.created_at) + " ago"-->
-<!--            %p.content= truncate(doc.body, length: 50)-->
-<!--    - else-->
-<!--      %h2 Create Doc!-->
-<!--      %p Start Creating Documents and Organizing Your Life!-->
-<!--      %button= link_to 'Create Doc', new_document_path-->
-
-<div class="wrapper_with_padding">
-  <div class="clearfix" id="docs">
-    <% unless @documents.blank? %>
-      <% @documents.each do |doc| %>
-        <a href="<%= (url_for [doc]) %>">
-          <div class="doc">
-            <p class="title">
-              <%= doc.title %>
-            </p>
-            <p class="date">
-              <%= time_ago_in_words(doc.created_at) + " ago" %>
-            </p>
-            <p class="content">
-              <%= truncate(doc.body, length: 50) %>
-            </p>
-          </div>
-        </a>
-      <% end %>
-    <% else %>
-      <h2>Create Doc!</h2>
-      <p>Start Creating Documents and Organizing Your Life!</p>
-      <button>
-        <%= link_to 'Create Doc', new_document_path %>
-      </button>
-    <% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="list-group">
+        <% unless @documents.blank? %>
+          <% @documents.each do |doc| %>
+            <a href="<% url_for(doc) %>" class="list-group-item list-group-item-action">
+              <h3><%= doc.title %></h3>
+              <p class="font-italic">
+                <%= "Created #{time_ago_in_words(doc.created_at)} ago" %>
+              </p>
+              <p>
+                <%= truncate(doc.body, length: 50) %>
+              </p>
+            </a>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
