@@ -15,4 +15,9 @@
   color: white !important;
 }
 
+.callout {
+  background-image: url(image_path("callout_background.jpg"));
+  color: white;
+}
+
 @import 'bootstrap';
