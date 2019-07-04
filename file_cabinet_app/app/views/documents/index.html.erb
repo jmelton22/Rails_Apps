@@ -1,21 +1,48 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
-      <div class="list-group">
-        <% unless @documents.blank? %>
-          <% @documents.each do |doc| %>
-            <%= link_to document_path(doc), class: 'list-group-item list-group-item-action' do %>
-                <h3><%= doc.title %></h3>
-                <p class="font-italic">
-                  <%= "Created #{time_ago_in_words(doc.created_at)} ago" %>
-                </p>
-                <p>
-                  <%= truncate(doc.body, length: 50) %>
-                </p>
-              <% end %>
-          <% end %>
+<!--<div class="container-fluid">-->
+<!--  <div class="row">-->
+<!--    <div class="col-12">-->
+<!--      <div class="list-group">-->
+        <%# unless @documents.blank? %>
+          <%# @documents.each do |doc| %>
+            <%#= link_to document_path(doc), class: 'list-group-item list-group-item-action' do %>
+<!--                <h3><%#= doc.title %></h3>-->
+<!--                <p class="font-italic">-->
+                  <%#= "Created #{time_ago_in_words(doc.created_at)} ago" %>
+<!--                </p>-->
+<!--                <p>-->
+                  <%#= truncate(doc.body, length: 50) %>
+<!--                </p>-->
+              <%# end %>
+          <%# end %>
+        <%# end %>
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div class="constainer-fluid">
+  <% if @documents.blank? %>
+    <$%= render 'new' %>
+  <% else %>
+    <table class="table table-hover" id="docs_table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Last modified</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @documents.each do |doc| %>
+          <tr>
+            <td><%= doc.title %></td>
+            <td><%= current_user.email %></td>
+            <td><%= time_ago_in_words(doc.updated_at) %> ago</td>
+            <td><%= link_to 'Open Doc', document_path(doc), class: 'btn btn-primary btn-sm' %></td>
+          </tr>
         <% end %>
-      </div>
-    </div>
-  </div>
+      </tbody>
+    </table>
+  <% end %>
 </div>
