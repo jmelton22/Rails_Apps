@@ -16,7 +16,7 @@
 }
 
 .callout {
-  background-image: url(image_path("callout_background.jpg"));
+  background: transparent url(image_path("callout_background.jpg")) no-repeat center center /cover;
   color: white;
 }
 
