@@ -1,5 +1,17 @@
-<%= simple_form_for @document do |f| %>
-  <%= f.input :title %>
-  <%= f.input :body %>
-  <%= f.button :submit, class: 'button' %>
-<% end %>
+<div class="row pl-4">
+  <div class="col-6">
+    <%= form_for @document do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control'%>
+      </div>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, class: 'form-control', rows: '10' %>
+      </div>
+
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', documents_path, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

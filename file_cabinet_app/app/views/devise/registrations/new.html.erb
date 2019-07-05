@@ -1,6 +1,6 @@
-  <h2>Sign up</h2>
+<h2>Sign up</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-group">
@@ -17,7 +17,7 @@
                   required: true,
                   input_html: { autocomplete: "new-password" } %>
     </div>
-      <%= f.button :submit, "Sign up", class: 'btn-primary' %>
-  <% end %>
+  <%= f.button :submit, "Sign up", class: 'btn-primary' %>
+<% end %>
 
-  <%= render "devise/shared/links" %>
+<%= render "devise/shared/links" %>

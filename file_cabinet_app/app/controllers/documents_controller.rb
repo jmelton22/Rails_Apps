@@ -2,7 +2,7 @@ class DocumentsController < ApplicationController
   before_action :find_doc, only: [:show, :edit, :update, :destroy]
 
   def index
-    @documents = current_user.documents
+    @documents = current_user.documents.order('documents.updated_at DESC')
   end
 
   def show
